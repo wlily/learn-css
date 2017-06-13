@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CSS Selector</title>
+    <style type="text/css">
+        /**********************（html）元素选择器*****************************/
+        html {
+            color: black;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        h2 {
+            color: slateblue;
+        }
+
+        /**********************选择器分组*****************************/
+        h1, h2, h3, h4, h5, h6 {
+            /*color:gray;*/
+            background: white;
+            padding: 10px;
+            border: 1px solid black;
+            font-family: Verdana;
+        }
+
+        /**********************派生选择器************************************/
+        div.decendant ul em {
+            /*后代选择器（descendant selector）又称为包含选择器。后代选择器可以选择作为某元素后代的元素。*/
+            color: red;
+            font-weight: bold;
+        }
+
+        div.child p > strong {
+            /*子元素选择器（Child selectors）只能选择作为某元素子元素的元素。*/
+            color: red;
+        }
+
+        div.sibling div + p {
+            /*相邻兄弟选择器,（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。*/
+            margin-top: 50px;
+            color: blue;
+        }
+
+        /***********************ID选择器************************************/
+        div.id #red {
+            /*id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。*/
+            /*id 选择器以 "#" 来定义。*/
+            color: red;
+        }
+
+        div.id #sidebar p {
+            /*在现代布局中，id 选择器常常用于建立派生选择器。*/
+            /*上面的样式只会应用于出现在 id 是 sidebar 的元素内的段落。这个元素很可能是 div 或者是表格单元等*/
+            font-style: italic;
+            text-align: center;
+            margin-top: 0.5em;
+        }
+
+        /***********************类选择器************************************/
+        div.clazz .center {
+            /*类选择器以一个点号显示：*/
+            text-align: center
+        }
+
+        div.clazz p {
+            /*class 也可被用作派生选择器*/
+            color: #f60;
+            background: greenyellow;
+            font-style: italic;
+        }
+
+        div.clazz p.fancy {
+            /*元素也可以基于它们的类而被选择*/
+            color: #06f;
+            background: #ff0;
+        }
+
+        div.clazz .important {
+            font-weight: bold;
+        }
+
+        div.clazz .warning {
+            font-style: italic;
+        }
+
+        div.clazz .important.warning {
+            background: silver;
+        }
+
+        /***********************属性选择器************************************/
+        div.attr [title] {
+            /*可以为拥有指定属性的 HTML 元素设置样式，而不仅限于 class 和 id 属性。*/
+            color: red;
+        }
+
+        div.attr a[href][title] {
+            color: red;
+        }
+
+        div.attr [title=W3School] {
+            /*属性和值选择器, title="W3School" 的所有元素设置样式*/
+            border: 5px solid blue;
+        }
+
+        div.attr [title~="test3"] {
+            margin-right: 100px;
+        }
+
+        /*选择器	描述*/
+        /*[attribute]	用于选取带有指定属性的元素。*/
+        /*[attribute=value]	用于选取带有指定属性和值的元素。*/
+        /*[attribute~=value]	用于选取属性值中包含指定词汇的元素。*/
+        /*[attribute|=value]	用于选取带有以指定值开头的属性值的元素，该值必须是整个单词。*/
+        /*[attribute^=value]	匹配属性值以指定值开头的每个元素。*/
+        /*[attribute$=value]	匹配属性值以指定值结尾的每个元素。*/
+        /*[attribute*=value]	匹配属性值中包含指定值的每个元素。*/
+
+        /***********************伪类选择器************************************/
+        div.Pseudo-classes a:link {
+            color: #FF0000
+        }
+
+        div.Pseudo-classes a:visited {
+            color: #00FF00
+        }
+
+        div.Pseudo-classes a:hover {
+            color: #FF00FF
+        }
+
+        div.Pseudo-classes a:active {
+            color: #0000FF
+        }
+
+        div.Pseudo-classes a.one:link {
+            color: #ff0000
+        }
+
+        div.Pseudo-classes a.one:visited {
+            color: #0000ff
+        }
+
+        div.Pseudo-classes a.one:hover {
+            color: #ffcc00
+        }
+
+        div.Pseudo-classes a.two:link {
+            color: #ff0000
+        }
+
+        div.Pseudo-classes a.two:visited {
+            color: #0000ff
+        }
+
+        div.Pseudo-classes a.two:hover {
+            font-size: 150%
+        }
+
+        div.Pseudo-classes a.three:link {
+            color: #ff0000
+        }
+
+        div.Pseudo-classes a.three:visited {
+            color: #0000ff
+        }
+
+        div.Pseudo-classes a.three:hover {
+            background: #66ff66
+        }
+
+        div.Pseudo-classes a.four:link {
+            color: #ff0000
+        }
+
+        div.Pseudo-classes a.four:visited {
+            color: #0000ff
+        }
+
+        div.Pseudo-classes a.four:hover {
+            font-family: monospace
+        }
+
+        div.Pseudo-classes a.five:link {
+            color: #ff0000;
+            text-decoration: none
+        }
+
+        div.Pseudo-classes a.five:visited {
+            color: #0000ff;
+            text-decoration: none
+        }
+
+        div.Pseudo-classes a.five:hover {
+            text-decoration: underline
+        }
+
+        div.Pseudo-classes input:focus {
+            background-color: yellow;
+        }
+
+        div.Pseudo-classes p > i:first-child {
+            /*匹配p元素第一个i子元素*/
+            font-weight: bold;
+        }
+
+        div.Pseudo-classes p:first-child > i {
+            /*匹配第一个p元素所有i子元素*/
+            color: greenyellow;
+        }
+
+        div.Pseudo-classes q:lang(no) {
+            quotes: "~" "~"
+        }
+
+        /***********************伪元素选择器************************************/
+        div.Pseudo-elements p:first-line {
+            color: #ff0000;
+            font-variant: small-caps
+        }
+
+        div.Pseudo-elements p:first-letter {
+            color: #ff0000;
+            font-size: xx-large;
+        }
+
+        div.Pseudo-elements p.article:first-letter {
+            color: purple;
+        }
+
+        div.Pseudo-elements p:before {
+            content: url(img/logo.gif);
+        }
+
+        div.Pseudo-elements p:after {
+            content: url(img/logo.gif);
+        }
+
+        /*:first-letter	向文本的第一个字母添加特殊样式。	*/
+        /*:first-line	向文本的首行添加特殊样式。	*/
+        /*:before	在元素之前添加内容。	*/
+        /*:after	在元素之后添加内容。*/
+    </style>
+</head>
+<body>
+
+<h1>CSS选择器</h1>
+
+<div class="decendant">
+    <h2>派生选择器 之 后代选择器举例 eg. ul em</h2>
+    <ul>
+        <li>List item 1
+            <ol>
+                <li>List item 1-1</li>
+                <li>List item 1-3
+                    <ol>
+                        <li>List item <em>1-3-2</em></li>
+                        <li>List item 1-3-3</li>
+                    </ol>
+                </li>
+                <li>List item 1-4</li>
+            </ol>
+        </li>
+        <li>List item 3</li>
+    </ul>
+</div>
+
+<div class="child">
+    <h2>派生选择器 之 子元素选择器 eg. p > strong</h2>
+    <p>This is <strong>very</strong> <strong>very</strong> important.</p>
+    <p>This is <em>really <strong>very</strong></em> important.</p>
+</div>
+
+<div class="sibling">
+    <h2>派生选择器 之 相邻兄弟选择器 eg. div + p</h2>
+    <div>This is a heading.</div>
+    <p>This is paragraph.</p>
+    <p>This is paragraph.</p>
+    <p>This is paragraph.</p>
+</div>
+
+<div id="id">
+    <h2>ID选择器 eg. #id</h2>
+    <p id="red">这个段落是红色。</p>
+</div>
+
+
+<div class="clazz">
+    <h2>类选择器 eg. .class</h2>
+    <p class="center">
+        This paragraph will also be center-aligned.
+    </p>
+    <p class="fancy">
+        This paragraph will also be center-aligned.
+    </p>
+    <p class="important warning">
+        This paragraph is a very important warning.
+    </p>
+</div>
+
+<div class="attr">
+    <h2>属性选择器 eg. [attribute]</h2>
+    <br>
+    <a href="http://w3school.com.cn">W3School</a>
+    <a title="W3School" href="http://w3school.com.cn">W3School</a>
+    <a title="W3cSchool" href="http://w3school.com.cn">W3cSchool</a>
+    <a title="test3 test1" href="http://w3school.com.cn">W3cSchool</a>
+    <a title="test3 test2" href="http://w3school.com.cn">W3cSchool</a>
+</div>
+
+<div class="Pseudo-classes">
+    <h2>伪类选择器 eg. a:link, a:hover, a:visited, a.activate, input:focus, :first-child, q:lang(no)</h2>
+
+    <p>some <i>text</i>. some <i>text</i>.</p>
+    <p>some <i>text</i>. some <i>text</i>.</p>
+
+    <p><b><a href="/index.html" target="_blank">这是一个链接。</a></b></p>
+    <p><b>注释：</b>在 CSS 定义中，a:hover 必须位于 a:link 和 a:visited 之后，这样才能生效！</p>
+    <p><b>注释：</b>在 CSS 定义中，a:active 必须位于 a:hover 之后，这样才能生效！</p>
+
+    <p>请把鼠标移动到这些链接上，以查看效果：</p>
+    <p><b><a class="one" href="/index.html" target="_blank">这个链接改变颜色</a></b></p>
+    <p><b><a class="two" href="/index.html" target="_blank">这个链接改变字体大小</a></b></p>
+    <p><b><a class="three" href="/index.html" target="_blank">这个链接改变背景颜色</a></b></p>
+    <p><b><a class="four" href="/index.html" target="_blank">这个链接改变字体系列</a></b></p>
+    <p><b><a class="five" href="/index.html" target="_blank">这个链接改变文本装饰</a></b></p>
+
+    <form action="form_action.asp" method="get">
+        First name: <input type="text" name="fname"/><br/>
+        Last name: <input type="text" name="lname"/><br/>
+        <input type="submit" value="Submit"/>
+    </form>
+    <p><b>注释：</b>如果已规定 !DOCTYPE，那么 Internet Explorer 8 （以及更高版本）支持 :focus 伪类。</p>
+
+    <p>文字<q lang="no">段落中的引用的文字</q>文字</p>
+</div>
+
+<div class="Pseudo-elements">
+    <h2>伪元素选择器 eg. :first-line, :first-letter, :before, :after</h2>
+    <p>
+        You can use the :first-line pseudo-element to add a special effect to the first line of a text!
+        <br>Second line ddddd
+    </p>
+    <p class="article">This is a paragraph in an article。</p>
+
+</div>
+</body>
+</div>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Positioning</title>
+    <style type="text/css">
+        h1.category1 {
+            color: blue;
+        }
+
+        h2.category2 {
+            color: blueviolet;
+        }
+
+        h1.category1, h2.category2 {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        /**********************相对定位*****************************/
+        /*设置为相对定位的元素框会偏移某个距离。元素仍然保持其未定位前的形状，它原本所占的空间仍保留。*/
+        div.relative div.pos_left {
+            background-color: #00FF00;
+            position: relative;
+            left: -20px
+        }
+
+        div.relative div.pos_right {
+            background-color: yellow;
+            position: relative;
+            left: 20px
+        }
+
+        /**********************绝对定位*****************************/
+        /*设置为绝对定位的元素框从文档流完全删除，并相对于其包含块定位，包含块可能是文档中的另一个元素或者是初始包含块。
+        元素原先在正常文档流中所占的空间会关闭，就好像该元素原来不存在一样。
+        元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。*/
+        div.absolute div.pos_abs {
+            position: absolute;
+            left: 100px;
+            top: 500px
+        }
+
+        /**********************浮动定位*****************************/
+        div.float div.test1 img {
+            float: right;
+            border: 1px dotted black;
+            margin: 0px 0px 15px 20px;
+        }
+
+        div.float div.test2 div {
+            float: right;
+            width: 120px;
+            margin: 0 0 15px 20px;
+            padding: 15px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        div.float div.test3 span {
+            float: left;
+            width: 0.7em;
+            font-size: 400%;
+            font-family: algerian, courier;
+            line-height: 80%;
+        }
+
+        div.float div.test4 ul {
+            float: left;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        div.float div.test4 a {
+            float: left;
+            width: 10em;
+            text-decoration: none;
+            color: white;
+            background-color: purple;
+            padding: 0.2em 0.6em;
+            border-right: 1px solid white;
+        }
+
+        div.float div.test4 a:hover {
+            background-color: #ff3300
+        }
+
+        div.float div.test4 li {
+            display: inline
+        }
+
+        div.float div.test5 div.container {
+            width: 100%;
+            margin: 0px;
+            border: 1px solid gray;
+            line-height: 150%;
+        }
+
+        div.float div.test5 div.header, div.footer {
+            padding: 0.5em;
+            color: white;
+            background-color: gray;
+            clear: left;
+        }
+
+        div.float div.test5 h1.header {
+            padding: 0;
+            margin: 0;
+        }
+
+        div.float div.test5 div.left {
+            float: left;
+            width: 30%;
+            margin: 0;
+            padding: 1em;
+            /*border-right: 1px solid gray;*/
+        }
+
+        div.float div.test5 div.content {
+            margin-left: 32%;
+            /*border-left:1px solid gray;*/
+            padding: 1em;
+        }
+
+        div.float div.test6 img {
+            float: left;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<h1 class="category1">CSS定位</h1>
+<div class="relative">
+    <h2 class="category2">相对定位</h2>
+    <div>这是位于正常位置的标题</div>
+    <div class="pos_left">这个标题相对于其正常位置向左移动20px</div>
+    <div class="pos_right">这个标题相对于其正常位置向右移动20px</div>
+    <p>相对定位会按照元素的原始位置对该元素进行移动。</p>
+    <p>样式 "left:-20px" 从元素的原始左侧位置减去 20 像素。</p>
+    <p>样式 "left:20px" 向元素的原始左侧位置增加 20 像素。</p>
+</div>
+
+<div class="absolute">
+    <h2 class="category2">绝对定位</h2>
+    <div>这是位于正常位置的标题</div>
+    <div class="pos_abs">这是带有绝对定位的标题</div>
+    <p>通过绝对定位，元素可以放置到页面上的任何位置。下面的标题距离页面左侧 100px，距离页面顶部 150px。</p>
+</div>
+
+<div class="float">
+    <h2 class="category2">浮动定位</h2>
+    <div class="test1">
+        <p>在下面的段落中，我们添加了一个样式为 <b>float:right</b> 的图像。结果是这个图像会浮动到段落的右侧。</p>
+        <p>
+            <img src="img/eg_cute.gif"/>
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+        </p>
+    </div>
+
+    <div class="test2">
+        <div>
+            <img src="img/eg_cute.gif"/><br/>
+            CSS is fun!
+        </div>
+        <p>
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+        </p>
+        <p>
+            在上面的段落中，div 元素的宽度是 120 像素，它其中包含图像。div 元素浮动到右侧。我们向 div 元素添加了外边距，这样就可以把 div 推离文本。同时，我们还向 div 添加了边框和内边距。
+        </p>
+    </div>
+
+
+    <div class="test3">
+        <p>
+            <span>T</span>his is some text.
+            This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text.
+        </p>
+
+        <p>
+            在上面的段落中，文本的第一个字母包含在一个 span 元素中。这个 span 元素的宽度是当前字体尺寸的 0.7 倍。span 元素的字体尺寸是 400%，行高是 80%。span 中的字母字体是
+            "Algerian"
+        </p>
+    </div>
+
+    <div class="test4">
+        <ul>
+            <li><a href="#">Link one</a></li>
+            <li><a href="#">Link two</a></li>
+            <li><a href="#">Link three</a></li>
+            <li><a href="#">Link four</a></li>
+        </ul>
+
+        <p>
+            在上面的例子中，我们把 ul 元素和 a 元素浮向左浮动。li 元素显示为行内元素（元素前后没有换行）。这样就可以使列表排列成一行。ul 元素的宽度是 100%，列表中的每个超链接的宽度是 7em（当前字体尺寸的 7
+            倍）。我们添加了颜色和边框，以使其更漂亮。
+        </p>
+    </div>
+
+
+    <div class="test5">
+        <div class="container">
+            <div class="header"><h1 class="header">W3School.com.cn</h1></div>
+
+            <div class="left"><p>"Never increase, beyond what is necessary, the number of entities required to explain
+                anything." William of Ockham (1285-1349)</p></div>
+
+            <div class="content">
+                <h2>Free Web Building Tutorials</h2>
+                <p>At W3School.com.cn you will find all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.
+
+                    At W3School.com.cn you will find all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.
+                    At W3School.com.cn you will find all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.
+                    At W3School.com.cn you will find all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.
+                    At W3School.com.cn you will find all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.At W3School.com.cn you will find
+                    all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.At W3School.com.cn you will find
+                    all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.At W3School.com.cn you will find
+                    all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.At W3School.com.cn you will find
+                    all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.At W3School.com.cn you will find
+                    all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.At W3School.com.cn you will find
+                    all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.At W3School.com.cn you will find
+                    all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.
+                </p>
+                <p>W3School.com.cn - The Largest Web Developers Site On The Net!</p></div>
+
+            <div class="footer">Copyright 2008 by YingKe Investment.</div>
+        </div>
+    </div>
+
+    <div class="test6">
+        <img src="img/eg_smile.gif"/>
+        <img src="img/eg_smile.gif"/>
+    </div>
+
+</div>
+</body>
+</html>
